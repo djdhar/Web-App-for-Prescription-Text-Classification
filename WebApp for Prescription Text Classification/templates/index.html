@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  
+  <title> Prescription Text Localization and Classification </title>
+  </head>
+  <body>
+
+    <div class="container" style="background: white;margin-top: 50px;">
+    <h2 style="text-align: center;"> Handwritten and Printed Text Classification from Doctor's Prescription</h2>
+    <small style="color:red">**Please note that the deploying server heroku has a 30 second timeout. So if your internet connection is very slow and/or if the image size is large, it may take too long time for uploading and downloading to get rid of time-out. So be careful and try to avoid both of them.</small>
+      <form action ="/click" method = 'POST' enctype="multipart/form-data" style="text-align:center;margin-top: 40px;">
+      
+      
+
+        {% if inputn == False %}
+            <p style="text-align: center;">Invalid Input</p>
+            {% endif %}
+
+        <div>
+        <input type = "file" name = "nm" accept="image" style="margin-top: 20px;" >
+        <input type = "submit" value = "SUBMIT" onclick="loading()" style="margin-top: 20px;margin-bottom: 20px; " ></div>
+    </form>
+
+    <div id="loaded" style=" display: none;text-align:center;margin-bottom: 10px;">
+        <div class="loaderanim">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    {% if file == False %}
+            <p style="text-align: center;">No Files Selected</p>
+            {% endif %}
+
+    {% if test == True %}
+    <p> Upto this running, and number is {{ num }} and file is {{ idshow }}</p>
+    {% endif %}
+
+    {% if clicked == True %}
+    <div class="row">
+        <div class="col-sm" style="text-align: center; margin-top:30px">
+          <img src="{{ filelink }}" style="max-width: 80%; max-height:80%;">
+        </div>
+      </div>
+    {% endif %}
+
+
+      <br>
+      <br>
+    <a href="/"><p style="text-align: center;">Refresh</p></a>
+    <a href="https://youtu.be/KXKKKxl50EY"><p style="text-align: center;">YouTube Link (Sample Testing Demo)</p></a>
+    <a href="https://youtu.be/jQ7oT84vAgs"><p style="text-align: center;">YouTube Link (Proof of Accuracy)</p></a>
+    </div>
+    
+    <!---
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+-->
+        
+    
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!---
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  -->
+  </body>
+</html>
